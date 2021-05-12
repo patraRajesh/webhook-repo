@@ -1,0 +1,36 @@
+<html>
+<head>
+<script
+			  src="https://code.jquery.com/jquery-3.4.1.js"
+			  integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="
+			  crossorigin="anonymous"></script>
+</head>
+<body >  
+Push
+{% for key in push %} 
+		<p>{{key.author}} pushed to {{key.to_branch}} on {{key.time_stamp}}</p>
+{% endfor %}  
+Pull
+{% for key in pull %} 
+		<p>{{key.author}} submitted a pull request from {{key.from_branch}} to {{key.to_branch}} on {{key.time_stamp}}</p>
+{% endfor %}  
+Meregd
+{% for key in merged %} 
+		<p>{{key.author}} merged branch from {{key.from_branch}} to {{key.to_branch}} on {{key.time_stamp}}</p>
+{% endfor %}
+
+<script type="text/javascript">
+	
+	$(document).ready(function() {
+  setInterval(function() {
+    cache_clear()
+  }, 15000);
+});
+
+function cache_clear() {
+  window.location.reload(true);
+}
+
+
+</script>
+</body>
